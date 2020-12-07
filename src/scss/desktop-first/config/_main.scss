@@ -1,0 +1,10 @@
+@import 'breakpoints';
+@import 'grid';
+
+$rounded: (
+   'default':2,
+   //
+   'small': 1,
+   'medium': 3, 
+   'large':4
+);

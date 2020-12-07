@@ -1,0 +1,23 @@
+@if $_4pt-var-css {
+    :root {
+        //* Вывод переменных сетки
+        @each $bp in map-keys(map-remove($grid, 'setting')) {
+            @if $bp == default {
+                @each $property, $value in _value($grid, $bp) {
+                    @if $property != 'columns' {
+                        --#{$property}: #{$value};
+                    }
+                }            
+            }
+            @else {
+                @include media($bp) {
+                    @each $property, $value in _value($grid, $bp) {
+                        --#{$property}: #{$value};
+                    }  
+                }
+            }
+        }
+        //* end
+
+    }
+}

@@ -1,0 +1,30 @@
+@mixin gap( 
+            $type: 'default',                
+            $bp: 'default',                         
+            $zero: false,                   
+            $lvl:_value($_lvl, 'grid-gap')  
+) {
+    //* Если в переменной $_lvl, 'grid-gap' значение не равно 1 и в миксе значение заданно 1 то увеличиваем лвл до 2
+    //* Это требуется чтобы не возникал конфликт при отсутствие placeholder %grid-gap*
+    @if $lvl == 1 and _value($_lvl, 'grid-gap') != 1 {
+        $lvl: 2;
+    }  
+    @if $_4pt-var-css {
+        @if $type == 'default'{
+            @include _lvl($lvl, $bp, 'grid-gap-default', (
+                padding-left: calc(var(--gap) / 2),
+                padding-right: calc(var(--gap) / 2)
+            ));  
+        }
+    }
+    @else {
+        @each $breakpoint in (map-keys(map-remove($grid, 'setting'))) {
+            @if _value($grid, 'gap' , $breakpoint) {
+                @include _lvl($lvl, $breakpoint, 'grid-gap-padding', (
+                    padding-left: _value($grid, 'gap', $breakpoint) / 2,
+                    padding-right: _value($grid, 'gap', $breakpoint) / 2, 
+                ));    
+            }
+        }
+    }
+}

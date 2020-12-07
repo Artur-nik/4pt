@@ -1,0 +1,7 @@
+//*  Настройки .grid
+.grid {
+    @include grid();
+    & > * {
+        @include col($value: false, $initialization: true);
+    }
+}

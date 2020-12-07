@@ -1,0 +1,10 @@
+%auto {
+    margin-right:auto;
+    margin-left: auto;
+    &-left {
+        margin-left: auto;
+    }
+    &-right {
+        margin-right:auto;
+    }
+}

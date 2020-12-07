@@ -1,0 +1,82 @@
+@mixin bp(  
+                   $media: false,   //*
+                 $default: false,   //*                    
+                    $only: false,   //*
+            $default-only: false,   //*
+             $placeholder: null,
+                $selector: null
+    ) {
+    @each $bp in _value($breakpoints, 'list') {
+        @if $bp == 'default' {
+            @if $default or $default-only {
+                @if $placeholder == null {
+                    @content;
+                }
+                @else {
+                    @if $selector == null {
+                        @each $name in $placeholder {
+                            @extend %#{$name};
+                        }
+                    }
+                    @else {
+                        #{$selector} {
+                            @each $name in $placeholder {
+                                @extend %#{$name};
+                            }                                        
+                        }
+                    }
+                }
+            }
+        }
+        @else if $default-only == false {
+            @if $placeholder == null {
+                @if $media {
+                    &-#{$bp}{
+                        @include media($bp) {
+                            @if $placeholder == null {
+                                @content;
+                            }
+                            @else {
+                                @if $selector == null {
+                                    @each $name in $placeholder {
+                                        @extend %#{$name}-#{$bp};
+                                    }
+                                }
+                                @else {
+                                    #{$selector} {
+                                        @each $name in $placeholder {
+                                            @extend %#{$name}-#{$bp};
+                                        }                                     
+                                    }
+                                }
+                            }
+                        }
+                    } 
+                }
+                @if $only {
+                    &-#{$bp}-only{
+                        @include media($bp) {
+                            @if $placeholder == null {
+                                @content;
+                            }
+                            @else {
+                                @if $selector == null {
+                                    @each $name in $placeholder {
+                                        @extend %#{$name}-#{$bp};
+                                    }
+                                }
+                                @else {
+                                    #{$selector} {
+                                        @each $name in $placeholder {
+                                            @extend %#{$name}-#{$bp};
+                                        }                                        
+                                    }
+                                }
+                            }
+                        }
+                    }             
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+//* 
+@function _lvl($value) {
+    @if _value($_lvl, $value) == 1 {
+        @return true;
+    }
+    @else {
+        @return false;
+    }
+}

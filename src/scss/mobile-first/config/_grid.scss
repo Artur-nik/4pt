@@ -1,0 +1,25 @@
+$grid:(
+    'setting':(
+        columns: 12,
+    ),
+    'default':(
+        gap: 16px,
+        container-size: 100%
+    ),    
+    'sm':(
+        gap: 16px,
+        container-size: 528px,
+    ),
+    'md':(
+        gap: 24px,
+        container-size: 768px,
+    ),
+    'lg':(
+        gap: 24px,
+        container-size: 960px,
+    ),     
+    'xl':(
+        gap: 32px,
+        container-size: 1248px,
+    ) 
+);

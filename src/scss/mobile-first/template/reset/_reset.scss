@@ -1,0 +1,10 @@
+@if $_4pt-var-css {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+}

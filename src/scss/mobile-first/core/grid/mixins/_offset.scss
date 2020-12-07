@@ -1,0 +1,39 @@
+@mixin offset(  $col, 
+                $bp: 'default', 
+                $gap: true, 
+                $lvl: _value($_lvl, 'grid-offset')
+) {
+    //* Если в переменной $_lvl, 'grid-col' значение не равно 1 и в миксе значение заданно 1 то увеличиваем лвл до 2
+    //* Это требуется чтобы не возникал конфликт при отсутствие placeholder %grid-col-*
+    @if $lvl == 1 and _value($_lvl, 'grid-offset') != 1 {
+        $lvl: 2;
+    }    
+    //* Округяем $col, если дробное:    
+    $col:round($col); 
+    //* Проверка на число и только число:
+    @if type-of($col) == number and unitless($col) {
+        //* Сравниваем $col с количество колонок (не может быть больше):
+        @if $col < _value($grid, 'columns', 'setting') and $col >= 1{
+            @if $_4pt-var-css {
+                @include _lvl($lvl, $bp, 'grid-offset-#{$col}', (--offset: #{100% / (_value($grid, 'columns', 'setting') / $col)}));
+            }
+            @else {
+                @if $gap {
+                    @include _lvl($lvl, $bp, 'grid-offset-#{$col}', 
+                        (
+                            margin-left: calc(
+                                #{100% / (_value($grid, 'columns', 'setting') / $col)} + #{_value($grid, 'gap' , $bp) / 2}
+                                )
+                        )
+                    );
+                }
+                @else {
+                    @include _lvl($lvl, $bp, 'grid-offset-no-gap-#{$col}', 
+                        (margin-left: #{100% / (_value($grid, 'columns', 'setting') / $col)})
+                    );                
+                }
+            }
+        }
+    }    
+}
+//* Ссылка на микс _lvl() (core/mixins/_lvl.scss)

@@ -1,0 +1,37 @@
+.offset {
+    @each $bp in _bp() {
+        @for $column from 1 to _value($grid, 'columns', 'default') {
+            @if $bp == 'default' {
+                &-#{$column} {
+                    @if $_4pt-var-css {
+                            @include offset($column);
+                    }
+                    @else {
+                        @include offset($column);
+                        @each $breakpoint in _value($breakpoints, 'list') {
+                            @include media($breakpoint) {
+                                @include offset($column, $breakpoint);
+                            }
+                        }  
+                    }
+                }
+            }
+            @else {
+                &-#{$bp}-#{$column} {
+                    @if $_4pt-var-css {
+                        @include offset($column, $bp);
+                    }
+                    @else {
+                        @include offset($column, $bp);
+                        @if $bp != default and index(map-keys(map-remove($grid, 'default')), $bp) != null {                          
+                            @for $i from length(map-remove($grid, 'default')) to index(map-keys(map-remove($grid, 'default')), $bp){
+                                @include offset($column, nth(map-keys(map-remove($grid, 'default')), $i));
+                            }
+                        } 
+                    }
+                }
+            }
+        }
+    }
+    //! offset-auto добавить?
+}

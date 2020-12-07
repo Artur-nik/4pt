@@ -1,0 +1,108 @@
+@if _lvl('grid-col') {
+    %grid-col-initialization {
+        //* Вывод в 4pt.scss
+        @if $_4pt-var-css {
+            //* Инициализация col
+            --col: #{_value($grid, 'columns', 'setting')};  
+            --col-gap: var(--gap);
+            //* Инициализация offset
+            --offset:0%;
+            width: 100%;
+            flex: 1 0 auto;
+            margin-left: calc(var(--offset) + (var(--col-gap) / 2));
+            margin-right: calc(var(--col-gap) / 2);
+            max-width: calc((100% / (#{_value($grid, 'columns', 'setting')} / var(--col))) - var(--col-gap));    
+        }
+        //* Вывод в 4pt-support.scss
+        @else {
+            margin-left: _value($grid, 'gap' , 'default') / 2;
+            margin-right: _value($grid, 'gap' , 'default') / 2;
+            max-width: calc(100% - #{_value($grid, 'gap' , 'default')});   
+            @each $bp in map-keys(map-remove($grid, 'default', 'setting')) {
+                @include media($bp) {
+                    &-#{$bp} {
+                        margin-left: _value($grid, 'gap' , $bp) / 2;
+                        margin-right: _value($grid, 'gap' , $bp) / 2; 
+                        max-width: calc(100% - #{_value($grid, 'gap' , $bp)}); 
+                    }   
+                }     
+            }      
+        }
+    }
+    %grid-col {
+        //* col
+        @if $_4pt-var-css {  
+            flex-basis: 0;
+            width: auto; 
+            --col: #{_value($grid, 'columns', 'setting')};  
+        } 
+        //?----------------------------------------------------------------------------
+        //* col-auto
+        &-auto {
+            flex: 0 0 auto;
+            width: auto; 
+            --col: #{_value($grid, 'columns', 'setting')};   
+            //*
+            @each $bp in map-keys(map-remove($grid, 'setting')) { 
+                @include media($bp) {
+                        &-#{$bp} {
+                        flex: 0 0 auto;
+                        width: auto; 
+                        --col: #{_value($grid, 'columns', 'setting')};  
+                    }
+                }
+            }
+        }
+        //?----------------------------------------------------------------------------
+        //* col-*
+        @each $bp in map-keys(map-remove($grid, 'setting')) {
+            //*
+            @for $col from 1 through _value($grid, 'columns', 'setting') {
+                @if $bp == 'default' {
+                    //*
+                    @if $_4pt-var-css {
+                        //*
+                        &-#{$col}{
+                            --col: #{col($col)};
+                        }
+                    }
+                    @else {
+                        //*
+                        &-#{$col} {
+                            max-width: col($col, $bp);
+                        }
+                        //*
+                        &-no-gap-#{$col} {
+                            max-width: col($col, $bp, false);
+                        }
+                    }
+                }
+                @else {
+                    //*
+                    @if $_4pt-var-css {
+                        //*
+                        @include media($bp) {
+                            &-#{$col}-#{$bp}{
+                                --col: #{col($col)};
+                            }
+                        }
+                    }
+                    @else {
+                        //*
+                        @include media($bp) {
+                            &-#{$col}-#{$bp} {
+                                max-width: col($col, $bp);
+                            } 
+                            //*
+                            &-no-gap-#{$col} {
+                                max-width: col($col, $bp, false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //?----------------------------------------------------------------------------
+
+    }
+}

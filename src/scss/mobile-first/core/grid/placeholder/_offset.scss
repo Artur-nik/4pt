@@ -1,0 +1,44 @@
+@if _lvl('grid-offset')  {
+    %grid-offset {
+        @each $bp in _value($breakpoints, 'list') {
+            @for $col from 1 to _value($grid, 'columns', 'setting') {
+                @if $bp == 'default' {
+                    @if $_4pt-var-css {
+                        &-#{$col}{
+                            --offset: offset($col);
+                        }
+                    }
+                    @else {
+                        &-#{$col} {
+                            margin-left: offset($col);
+                        }
+                        &-no-gap-#{$col} {
+                            margin-left: offset($col, $gap: false);
+                        }
+                    }
+                }
+                @else {
+                    @if $_4pt-var-css {
+                        @include media($bp) {
+                            &-#{$col}-#{$bp}{
+                                --offset: offset($col, $bp);
+                            }
+                        }
+                    }
+                    @else {
+                        @include media($bp) {
+                            &-#{$col}-#{$bp} {
+                                margin-left: offset($col, $bp);
+                            } 
+                        }      
+                        @include media($bp) {
+                            &-no-gap-#{$col} {
+                                margin-left: offset($col, $bp, false);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

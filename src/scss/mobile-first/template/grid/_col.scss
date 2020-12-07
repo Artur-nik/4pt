@@ -1,0 +1,27 @@
+.col { 
+    //* col
+    @include col('col');
+    //?----------------------------------------------------------------------------
+    //* col-auto
+    &-auto {
+        @include col('auto');
+        @each $bp in map-keys(map-remove($grid, 'default', 'setting')) {
+            &-#{$bp} {
+                @include col('auto', $bp);
+            }
+        }
+    }
+    //?----------------------------------------------------------------------------
+    //* col-* 
+    @each $bp in map-keys(map-remove($grid, 'setting')) {
+        @for $column from 1 through _value($grid, 'columns', 'setting') {
+            @if $bp == 'default' {&-#{$column}{ @include col($column);}}
+            @else {&-#{$bp}-#{$column}{@include col($column, $bp);}}
+        }
+    } 
+    //? Модификаторы:
+    //* col-padding -*
+    //* col-left
+    //* col-right
+    //* col-center
+}
