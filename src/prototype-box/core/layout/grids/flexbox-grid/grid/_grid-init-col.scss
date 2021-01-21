@@ -1,0 +1,12 @@
+.grid > * {
+    //* Инициализация .col
+    --col: #{_value($grid, 'columns', 'setting')};  
+    --col-gap: var(--gap);
+    //* Инициализация .offset
+    --offset:0%;
+    width: 100%;
+    flex: 1 0 auto;
+    margin-left: calc(var(--offset) + var(--col-gap));
+    margin-right: var(--col-gap);
+    max-width: calc((100% / (#{_value($grid, 'columns', 'setting')} / var(--col))) - (var(--col-gap) * 2));
+}

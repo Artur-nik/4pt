@@ -1,0 +1,21 @@
+// left default// 
+
+.spacing-left {
+    @each $bp in _bp() {
+        @each $name, $value in $mod-spacing {
+            @if $name == 'default' {
+                @include _media($bp, true){
+                    margin-left: #{$value * 4px};
+                }
+            }
+            @else {
+                &-#{$name} {
+                    @include _media($bp, true){
+                        margin-left: #{$value * 4px};
+                    }
+                }
+            }
+        }           
+    }
+}
+

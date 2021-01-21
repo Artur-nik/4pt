@@ -1,0 +1,12 @@
+.rounded {
+    @each $key, $value in $mod-rounded {
+        @if $key == 'def' {
+            border-radius:  $value;
+        }
+        @else {
+            &-#{$key} {
+                border-radius: $value;
+            }            
+        }         
+    }
+}

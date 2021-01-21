@@ -1,0 +1,8 @@
+.avatar {
+    --size: 1;
+    display: var(--display-block);
+    width:  calc(3rem * var(--size));
+    height: calc(3rem * var(--size));
+    overflow: hidden;
+    border-radius: 50%;
+}

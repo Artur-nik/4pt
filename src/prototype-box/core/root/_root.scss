@@ -1,0 +1,31 @@
+:root {
+    //? Вывод переменных сетки
+    @each $bp in map-keys(map-remove($grid, 'setting')) {
+        @include _media($bp, true, false) {
+            @each $name, $value in _value($grid, $bp) {
+                --#{$name}: #{$value};
+            }  
+        }
+    }
+    //* end
+    //?
+    --display-flex: flex;
+    --display-block: block;
+    //--display-inline-block: inline-block;
+    //*
+    /* theme */
+    @each $name, $value in $theme {
+        /* #{$name} */
+        --#{$name}-h: #{round(hue(_value($value, 'hsl')))};
+        --#{$name}-s: #{round(saturation(_value($value, 'hsl')))}; 
+        --#{$name}-l: #{round(lightness(_value($value, 'hsl')))};
+    }
+    /* size */
+    @each $name, $value in $mod-sizes {
+        --size-#{$name}: #{$value};
+    }
+    /* spacing */
+    @each $name, $value in $mod-spacing {
+        --spacing-#{$name}:#{$value * 4px};
+    }
+}

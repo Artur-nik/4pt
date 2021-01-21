@@ -1,0 +1,7 @@
+.lvl-y-center {
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --align: center;
+        }
+    }
+}

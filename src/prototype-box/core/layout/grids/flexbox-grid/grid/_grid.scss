@@ -1,0 +1,20 @@
+
+.grid { 
+    //* Изоляция переменной:
+    --grid-gap: calc(var(--gap) / -1);   
+    //----------------------------------------------------
+    //*
+    @extend %flex-wrap;                 //* (core/layout/placeholder/_flex.scss)
+    //*
+    margin-left: var(--grid-gap);
+    margin-right: var(--grid-gap); 
+    //? Работа с lvl-*    
+    //? Инициализируем и изолируем переменные для работы с классом .lvl-*       
+    @extend %init-lvl-default-var;      //* (core/layout/placeholder/_init-lvl.scss)
+    //*
+    &[class*=" lvl-"], 
+    &[class|="lvl"] {  
+        //* 
+        @extend %init-lvl-x;                //* (core/layout/placeholder/_init-lvl.scss)
+    }
+}

@@ -1,0 +1,11 @@
+
+.title {
+    --size:1;
+    word-break: break-word;
+    margin-top: 0;
+    margin-bottom: calc((1rem * var(--size) + 0.5rem) - 0.075em);
+    font-size: calc(1rem * var(--size) + 0.5rem);
+    font-weight: 700;
+    font-family: inherit;
+    line-height: 1.15;
+}

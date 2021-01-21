@@ -1,0 +1,21 @@
+//
+.spacing-x {
+    @each $bp in _bp() {
+        @each $name, $value in $mod-spacing {
+            @if $name == 'default' {
+                @include _media($bp, true){
+                    margin-top: #{$value * 4px};
+                    margin-bottom: #{$value * 4px};
+                }
+            }
+            @else {
+                &-#{$name} {
+                    @include _media($bp, true){
+                        margin-top: #{$value * 4px};
+                        margin-bottom: #{$value * 4px};
+                    }
+                }
+            }
+        }           
+    }
+}

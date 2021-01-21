@@ -1,0 +1,26 @@
+//? Инициализируем свойства для работы с классом .lvl-*
+.box-x {
+    &[class*=" lvl-"], 
+    &[class|="lvl"] {
+        @extend %init-lvl-x;            //* (core/layout/placeholder/_init-lvl.scss)
+    }
+    //*
+    @each $bp in _bp($no-default: true) {
+        &\:#{$bp}[class*=" lvl-"], 
+        &\:#{$bp}[class|="lvl"] {                
+            @include _media($bp) {
+                align-items: var(--align);
+                justify-content: var(--justify);
+            }
+        }
+    }
+}
+//* Будет работать:
+//* [class*=" lvl-"]    - class="box-x box-y:pb lvl-left"
+//* [class|="lvl"]      - class="lvl-left box-x box-y:pb"
+//* Не будет рабоать:
+//* [class*=" lvl-"]    - class="box-x box-y:pb test-lvl-left"
+//* [class|="lvl"]      - class="test-lvl-left box-x box-y:pb"
+//* Дает возможность при использование .box задавать модификаторы для других блоков  
+//* Пример: .card--lvl-left при этом инициализация свойств для box не будет происходить
+//* Причина из за [class*=""] - пробел решает проблему когда он применяет стили ко всем селекторам с одинаков значением

@@ -9,6 +9,8 @@ const cssnano       = require('gulp-cssnano');
 
 
 let way = "/";
+let prototype = 'prototype-box';
+//let prototype = 'prototype-components';
 
 let path = {
     build: {
@@ -18,26 +20,21 @@ let path = {
     },
     src: {
         html:           [
-                            "src/template/*.html", 
-                            '!' + "src/template/**/_*.html"
+                            "test/*.html", 
+                            '!' + "test/**/_*.html"
                         ],
-        scss:           "src/scss/mobile-first/*.scss",
+        scss:           "src/" + prototype + "/4pt.scss",
         js:             "src/js/*.js",
     },
     watch: {
         html:           [
-                            "src/template/*.html", 
-                            "src/template/**/_*.html"
+                            "test/*.html", 
+                            "test/**/_*.html"
                         ],
-        scss:           "src/scss/**/*.scss",
+        scss:           "src/" + prototype + "/**/*.scss",
         js:             "src/js/**/*.js",
     },
-    clean: [
-        "app/*",
-        "app/css/",
-        "app/js/"
-    ],
-    cleanimg: "app/images/*",
+    clean: "app/**/*",
 }
 
 // Определяем логику работы Browsersync
@@ -65,13 +62,22 @@ function styles() {
     .pipe(sass())
     .pipe(autoprefixer({
         //grid: true,
+        flexbox: false,
         overrideBrowserslist: [
-                            '>1%',
+                            '>0.5%',
                             'last 4 versions',
-                            'not ie < 11', 
-                            'not ie_mob > 0'                           
+                            'edge >= 15',
+                            'not ie > 11', 
+                            'not ie_mob > 0',  
+                            'ff >= 31',
+                            'chrome >= 49',
+                            'opera >= 36',
+                            'safari >= 9.1',
+                            'ios >= 9.3',
+                            'android > 4.4.4',                         
                         ]}))
-    .pipe(gcmq())       // сбор медиа запросов
+    // сбор медиа запросов
+    .pipe(gcmq())       
 //    .pipe(cssnano({
 //        discardComments: false,
 //    }

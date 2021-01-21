@@ -1,0 +1,12 @@
+.icon {
+    //--size: inherit;
+    //--icon-size: calc(1rem * var(--size));
+    display: var(--display-block);
+    --size: inherit;
+    font-size: calc(1rem * var(--size));
+    width: 1em;
+    height: 1em;
+//    &[class*="size"] {
+//        --icon-size: calc(1rem * var(--size));
+//    }
+}

@@ -1,0 +1,18 @@
+.size {
+    @each $bp in _bp() {
+        @each $name, $value in $mod-sizes {
+            @if $name == 'default' {
+                @include _media($bp, true) {
+                    --size: var(--size-default);
+                }
+            }
+            @else {
+                &-#{$name} {
+                    @include _media($bp, true) {
+                        --size: var(--size-#{$name});
+                    }
+                }    
+            }
+        }
+    }
+}

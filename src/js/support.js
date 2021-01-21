@@ -1,2 +1,0 @@
-var hrefSupportLink = 'css/4pt-support.css';
-var supportLink = document.createElement("link");supportLink.setAttribute("href", hrefSupportLink);supportLink.setAttribute("type", "text/css");supportLink.setAttribute("rel", "stylesheet");function validVarCSS() {return window.CSS && CSS.supports('max-width', 'var(--container-size)');};if (validVarCSS() === undefined) {document.head.appendChild(supportLink);}

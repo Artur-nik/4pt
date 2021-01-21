@@ -1,0 +1,7 @@
+.lvl-x-center {
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --justify: center;
+        }
+    }
+}

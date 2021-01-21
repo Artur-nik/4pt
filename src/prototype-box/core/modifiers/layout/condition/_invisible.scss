@@ -1,0 +1,7 @@
+.invisible {
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            visibility: hidden;
+        }
+    }
+}

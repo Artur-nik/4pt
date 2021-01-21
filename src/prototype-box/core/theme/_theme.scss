@@ -1,0 +1,39 @@
+%setting-theme-bg {
+    --alpha: 1;
+    background-color: hsla(var(--hue), var(--saturation-bg), var(--lightness-bg), var(--alpha));
+}
+%setting-theme-color {
+    --saturation-color: 100%;
+    color: hsl(var(--hue), var(--saturation-color), var(--lightness-color));
+}
+%setting-theme-color-light {
+    --lightness-color: 98%;
+}
+%setting-theme-color-dark {
+    --lightness-color: 5%;
+}
+@each $name, $value in $theme {
+    .#{$name} {
+        --hue:var(--#{$name}-h);
+        --saturation-bg:var(--#{$name}-s);
+        --lightness-bg:var(--#{$name}-l);
+        //
+        @extend %setting-theme-bg;
+        // .secondary {}
+        // .secondary:color
+        &,
+        &\:color {
+            @extend %setting-theme-color;
+            //*
+            @if _value($value, 'color') == 'dark' {
+                @extend %setting-theme-color-dark;
+            }
+            @else if _value($value, 'color') == 'light' {
+                @extend %setting-theme-color-light;
+            }
+            @else {
+                @warn 'color == dark or light';
+            }
+        }
+    }
+}

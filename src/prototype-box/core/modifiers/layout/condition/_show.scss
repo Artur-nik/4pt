@@ -1,0 +1,10 @@
+.show {
+    //* Цикл
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --display-flex: flex;
+            --display-block: block;
+            //--display-inline-block: inline-block;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.theme-s {
+    @each $value in $mod-theme-saturation-lightness {
+        &-#{$value}, 
+        &-#{$value}\:bg  {
+            --s-bg:#{$value}#{'%'};
+        }
+        @if $value < 50 {
+            &-#{$value} {
+                --s-color: 100%;
+            }
+        }
+        &-#{$value}\:text {
+            --s-color:#{$value}#{'%'};
+        }
+        &-#{$value}\:br {
+            --s-br:#{$value}#{'%'};
+        }
+    }  
+}

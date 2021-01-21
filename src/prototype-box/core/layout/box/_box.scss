@@ -1,0 +1,19 @@
+//?
+.box {
+    //*
+    flex-direction: row;    
+    &[class*=" lvl-"], 
+    &[class|="lvl"] {
+        //? Инициализируем свойства для работы с классом .lvl-*
+        @extend %init-lvl-x;            //* (core/layout/placeholder/_init-lvl.scss)
+    }
+}
+//*
+.box,
+[class*=" box-"], 
+[class|="box"]{
+    //? Инициализируем и изолируем переменные для работы с классом .lvl-*
+    @extend %init-lvl-default-var;  //* (core/layout/placeholder/_init-lvl.scss)
+    //*
+    @extend %flex-row;              //* (core/layout/placeholder/_flex.scss)
+}

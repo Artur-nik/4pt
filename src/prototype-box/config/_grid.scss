@@ -1,0 +1,27 @@
+//*
+$grid:(
+    'setting':(
+        row-col: 6,
+        columns: 12,
+    ),
+    'default':(
+        gap: 8px,
+        container-size: 100%
+    ),    
+    'pb':(
+        gap: 8px,
+        container-size: 528px,
+    ),
+    'tb':(
+        gap: 12px,
+        container-size: 768px,
+    ),
+    'lt':(
+        gap: 12px,
+        container-size: 960px,
+    ),     
+    'dt':(
+        gap: 16px,
+        container-size: 1248px,
+    ) 
+);

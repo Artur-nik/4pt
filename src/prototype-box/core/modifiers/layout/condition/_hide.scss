@@ -1,0 +1,10 @@
+.hide {
+    //*
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --display-flex: none;
+            --display-block: none;
+            //--display-inline-block: none;
+        }
+    }
+}

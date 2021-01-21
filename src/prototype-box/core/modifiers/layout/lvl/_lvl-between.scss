@@ -1,0 +1,14 @@
+.lvl-x-between {
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --justify: space-between;
+        }
+    }
+}
+.lvl-y-between {
+    @each $bp in _bp() {
+        @include _media($bp, true) {
+            --align: space-between;
+        }
+    }
+}
