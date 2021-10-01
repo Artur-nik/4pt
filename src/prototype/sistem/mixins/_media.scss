@@ -1,0 +1,60 @@
+@mixin _media($type: 'default', $bp: 'default') {
+
+    @if $type == 'default'{
+        @if $bp == 'default' {
+            @content;
+        }
+        @else {
+            @media (min-width: map-get($breakpoints, $_bp)){
+                @content;
+            } 
+        }
+    }
+    @else if $type == 'for bp'{
+        @each $_bp in _bp('only') {
+            @media (min-width: map-get($breakpoints, $_bp)){
+                @content;
+            } 
+        }        
+    }
+    @else if $type == 'for bp + default'{
+        @each $_bp in _bp() {
+            @if $_bp == 'default' {
+                @content;
+            }
+            @else {
+                @media (min-width: map-get($breakpoints, $_bp)){
+                    @content;
+                } 
+            }
+        }        
+    }
+    @else if $type == 'for name bp'{
+        @each $_bp in _bp('only') {
+            &\@#{$_bp} {
+                @media (min-width: map-get($breakpoints, $_bp)){
+                    @content;
+                } 
+            }
+        }        
+    }
+    @else if $type == 'for name bp + default'{
+        @each $_bp in _bp() {
+            @if $_bp == 'default' {
+                @content;
+            }
+            @else {
+                &\@#{$_bp} {
+                    @media (min-width: map-get($breakpoints, $_bp)){
+                        @content;
+                    } 
+                }
+            }
+        }        
+    }
+} 
+.text {
+    @include _media('for name bp') {
+        color: #000;
+    }
+}

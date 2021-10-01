@@ -1,0 +1,8 @@
+@function _bp($type: 'default') {
+    @if $type == 'default'{
+        @return join('default', map-keys($breakpoints));
+    }
+    @else if $type == 'only' {
+        @return  map-keys($breakpoints);
+    }
+}

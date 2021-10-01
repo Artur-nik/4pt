@@ -1,4 +1,4 @@
-@mixin import($value: null, $var: $_import) {
+@mixin _import($value: null, $var: $_import) {
    
     @if not map-has-key($_import, $value ){
         @warn 'erroe $_import: "#{$value}"';
