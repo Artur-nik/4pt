@@ -8,30 +8,25 @@ const fileinclude   = require('gulp-file-include');
 const cssnano       = require('gulp-cssnano');
 
 
-let way = "/";
-let prototype = 'prototype-box';
-//let prototype = 'prototype-components';
-
 let path = {
     build: {
         html:          "app/",
         css:           "app/css/",
-        js:            "app/js/",
     },
     src: {
         html:           [
-                            "test/*.html", 
-                            '!' + "test/**/_*.html"
+                            "src/template/*.html", 
+                            '!' + "src/template/**/_*.html"
                         ],
-        scss:           "src/" + prototype + "/4pt.scss",
-        js:             "src/js/*.js",
+        scss:           "src/prototype/4pt.scss",
+        //js:             "src/js/*.js",
     },
     watch: {
         html:           [
-                            "test/*.html", 
-                            "test/**/_*.html"
+                            "template/*.html", 
+                            "template/**/_*.html"
                         ],
-        scss:           "src/" + prototype + "/**/*.scss",
+        scss:           "src/prototype/**/*.scss",
         js:             "src/js/**/*.js",
     },
     clean: "app/**/*",
@@ -69,11 +64,11 @@ function styles() {
                             'edge >= 15',
                             'not ie > 11', 
                             'not ie_mob > 0',  
-                            'ff >= 31',
-                            'chrome >= 49',
-                            'opera >= 36',
-                            'safari >= 9.1',
-                            'ios >= 9.3',
+                            'ff >= 52',
+                            'chrome >= 61',
+                            'opera >= 60',
+                            'safari >= 11',
+                            'ios >= 11',
                             'android > 4.4.4',                         
                         ]}))
     // сбор медиа запросов
@@ -110,4 +105,4 @@ exports.styles = styles;
 exports.startwatch = startwatch;
 exports.cleandest = cleandest;
 
-exports.default = series(cleandest, parallel(styles, scripts, browser_sync, html,  startwatch));
+exports.default = series(cleandest, parallel(styles, browser_sync, html,  startwatch));
