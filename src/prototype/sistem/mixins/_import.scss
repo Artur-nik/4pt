@@ -1,3 +1,12 @@
-@mixin import() {
-    
+@mixin import($value: null, $var: $_import) {
+   
+    @if not map-has-key($_import, $value ){
+        @warn 'erroe $_import: "#{$value}"';
+    }
+    @else if type-of(map-get($_import, $value)) != bool {
+        @warn '$_import: "#{$value}" = true/false';
+    } 
+    @else if map-get($_import, $value ){
+        @content;
+    }
 }

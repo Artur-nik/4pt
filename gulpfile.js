@@ -23,8 +23,8 @@ let path = {
     },
     watch: {
         html:           [
-                            "template/*.html", 
-                            "template/**/_*.html"
+                            "src/template/*.html", 
+                            "src/template/**/_*.html"
                         ],
         scss:           "src/prototype/**/*.scss",
         js:             "src/js/**/*.js",
