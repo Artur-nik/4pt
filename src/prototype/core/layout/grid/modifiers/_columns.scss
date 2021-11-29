@@ -1,0 +1,21 @@
+@if _output('grid', $_import) and _output('mod/columns', $grid-output) {
+
+.g\:columns {  
+    @for $col from 2 through $columns {
+        @each $bp in _bp('default') {
+            &-#{$col} {
+                @if $bp == 'default' {
+                    --grid-columns: #{$col};
+                }
+                @else {
+                    &\@#{$bp} {
+                        @include _media('default', $bp) {
+                            --grid-columns: #{$col};
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+}

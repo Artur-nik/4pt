@@ -1,0 +1,7 @@
+@if _output('grid', $_import) and _output('grid', $grid-output) {
+.grid[class*=" m:align-"],
+.grid[class^="m:align-"] {
+    align-items: var(--align);
+    justify-items: var(--justify);
+}
+}

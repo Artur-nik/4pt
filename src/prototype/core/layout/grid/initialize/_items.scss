@@ -1,0 +1,9 @@
+@if _output('grid', $_import) and _output('grid', $grid-output) {
+.grid > *{
+    --col: var(--grid-columns);
+    --row: 1;
+    --col-start: auto;
+    --row-start: auto;
+    grid-area: var(--row-start) /var(--col-start) / span var(--row) / span var(--col);
+}
+}

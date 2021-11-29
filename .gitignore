@@ -3,3 +3,6 @@ app
 app/index.html
 app/css/4pt.css
 .vscode/support4pt.code-snippets
+.vscode/extensions.json
+src/prototype-v1/
+src/template/

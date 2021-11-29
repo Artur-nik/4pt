@@ -1,0 +1,12 @@
+%display-flex {
+    --dp-flex: flex;
+    display: var(--dp-flex);
+    @each $bp in _bp('only') {
+        @include _media('default', $bp) {
+            &-#{$bp} {
+                --dp-flex: flex;
+                display: var(--dp-flex);
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@if _output('grid', $_import) and _output('order', $grid-output) {
+.order {
+    @for $col from 0 through $order {
+        &-#{$col} { 
+            @include _media('for name bp + default') { 
+                order:#{$col};
+            }
+        }     
+    }
+}
+}

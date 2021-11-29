@@ -1,0 +1,67 @@
+//*
+.m\:align-right {
+    @include _media('for name bp + default') {
+        --justify: flex-end;
+        --justify-r-x: flex-start;
+    }
+}
+.m\:align-left {
+    @include _media('for name bp + default') {
+        --justify: flex-start;
+        --justify-r-x: flex-end;
+    }
+}
+.m\:align-bottom {
+    @include _media('for name bp + default') {
+        --align: flex-end;
+        --align-r-y: flex-start;
+    }
+}
+.m\:align-top {
+    @include _media('for name bp + default') {
+        --align: flex-start;
+        --align-r-y: flex-end;
+    }
+}
+//* center
+.m\:align-center {
+    @include _media('for name bp + default') {
+        --align: center;
+        --justify: center;
+        --align-r-y: center;
+        --justify-r-x: center;
+    }
+}
+.m\:align-center-x {
+    @include _media('for name bp + default') {
+        --justify: center;
+        --justify-r-x: center;
+    }
+}
+.m\:align-center-y {
+    @include _media('for name bp + default') {
+        --align: center;
+        --align-r-y: center;
+    }
+}
+//* stretch
+.m\:align-stretch {
+    @include _media('for name bp + default') {
+        --align: stretch;
+        --justify: stretch;
+        --align-r-y: stretch;
+        --justify-r-x: stretch;
+    }
+}
+.m\:align-stretch-x {
+    @include _media('for name bp + default') {
+        --justify: stretch;
+        --justify-r-x: stretch;
+    }
+}
+.m\:align-stretch-y {
+    @include _media('for name bp + default') {
+        --align: stretch;
+        --align-r-y: stretch;
+    }
+}

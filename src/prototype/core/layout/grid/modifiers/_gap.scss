@@ -1,0 +1,56 @@
+@if _output('grid', $_import) and _output('mod/gap', $grid-output) {
+.g\:gap {
+    @include _media('for name bp') {
+        --local-container-gap: var(--container-gap);
+        --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size) );
+        --grid-gap-y: var(--gap-y);
+        --gap-n: calc(var(--container-gap) / -1);
+    }
+}
+
+.g\:gap-0 {
+    @include _media('for name bp + default') {
+        --local-container-gap: 0px;
+        --grid-gap-x: 0px;
+        --grid-gap-y: 0px;
+        --gap-n: 0px;
+    }
+}
+.g\:gap-n {
+    @include _media('for name bp + default') {
+        --gap-n: calc(var(--local-container-gap) / -1);
+        margin-right: var(--gap-n);
+        margin-left: var(--gap-n);
+    }
+}
+.g\:gap-n-0 {
+    @include _media('for name bp') {
+        --gap-n: 0px;
+    }
+}
+.g\:gap-x {
+    @include _media('for name bp + default') {
+        @if _output('modifiers', $_import) and _output('size', $modifiers-output) {
+            --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size) );
+        }
+        @else {
+            --grid-gap-x: var(--gap-x);
+        }
+    }
+}
+.g\:gap-x-0 {
+    @include _media('for name bp + default') {
+        --grid-gap-x: 0px;
+    }
+}
+.g\:gap-y {
+    @include _media('for name bp + default') {
+        --grid-gap-y: var(--gap-y);
+    }
+}
+.g\:gap-y-0 {
+    @include _media('for name bp + default') {
+        --grid-gap-y: 0px;
+    }
+}
+}

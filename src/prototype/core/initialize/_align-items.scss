@@ -1,0 +1,9 @@
+//* init
+[class*=" m:align-"],
+[class^="m:align-"] {
+    --align: initial;
+    --justify: initial;
+    align-items: var(--align);
+    justify-content: var(--justify);
+}
+//*

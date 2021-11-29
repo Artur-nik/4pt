@@ -1,0 +1,11 @@
+@if _output('grid', $_import) and _output('row/row', $grid-output) {
+.row {
+    @for $col from 1 through 12 {
+        &-#{$col} { 
+            @include _media('for name bp + default') { 
+                --row:#{$col};
+            }
+        }     
+    }
+}
+}

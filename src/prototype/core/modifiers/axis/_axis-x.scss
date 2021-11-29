@@ -1,0 +1,21 @@
+
+.m\:axis-x {
+    @include _media('for name bp + default') {
+        flex-direction: row;
+        &[class*=" m:align-"],
+        &[class^="m:align-"] {
+            align-items: var(--align);
+            justify-content: var(--justify);
+        }
+    }
+    &-r {
+        @include _media('for name bp + default') {
+            flex-direction: row-reverse;
+            &[class*=" m:align-"],
+            &[class^="m:align-"] {
+                align-items: var(--align);
+                justify-content: var(--justify-r-x);
+            }
+        }
+    }
+}

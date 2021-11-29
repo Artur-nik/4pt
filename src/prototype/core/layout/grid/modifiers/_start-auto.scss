@@ -1,0 +1,8 @@
+@if _output('grid', $_import) and _output('mod/col-start', $grid-output) {
+.g\:start-auto {
+    @include _media('for name bp') { 
+        --col-start: auto;
+        --row-start: auto;
+    } 
+}
+}

@@ -1,0 +1,6 @@
+
+@for $number from 1 to 9{
+    .t\:#{$number}00 {
+        font-weight: #{$number + '00'};
+    }
+}

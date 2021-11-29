@@ -1,0 +1,12 @@
+%display-block {
+    --dp-block: block;
+    display: var(--dp-block);
+    @each $bp in _bp('only') {
+        @include _media('default', $bp) {
+            &-#{$bp} {
+                --dp-block: block;
+                display: var(--dp-block);
+            }
+        }
+    }
+}

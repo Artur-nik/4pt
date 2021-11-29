@@ -5,10 +5,15 @@
             @content;
         }
         @else {
-            @media (min-width: map-get($breakpoints, $_bp)){
+            @media (min-width: map-get($breakpoints, $bp)){
                 @content;
             } 
         }
+    }
+    @if $type == 'only bp'{
+        @media (min-width: map-get($breakpoints, $bp)){
+            @content;
+        } 
     }
     @else if $type == 'for bp'{
         @each $_bp in _bp('only') {
@@ -53,8 +58,3 @@
         }        
     }
 } 
-.text {
-    @include _media('for name bp') {
-        color: #000;
-    }
-}

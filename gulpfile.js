@@ -9,7 +9,7 @@ const cssnano       = require('gulp-cssnano');
 
 
 let path = {
-    build: {
+    dev: {
         html:          "app/",
         css:           "app/css/",
     },
@@ -48,7 +48,7 @@ function browser_sync() {
 function html() {
     return src(path.src.html)
     .pipe(fileinclude())
-    .pipe(dest(path.build.html))
+    .pipe(dest(path.dev.html))
     .pipe(browserSync.stream());
 }
 // sass
@@ -73,17 +73,16 @@ function styles() {
                         ]}))
     // сбор медиа запросов
     .pipe(gcmq())       
-//    .pipe(cssnano({
-//        discardComments: false,
-//    }
-//    ))
-    .pipe(dest(path.build.css))
+    .pipe(cssnano({
+        discardComments: false,
+    }))
+    .pipe(dest(path.dev.css))
     .pipe(browserSync.stream());
 }
 // js
 function scripts() {
     return src(path.src.js)
-    .pipe(dest(path.build.js))
+    .pipe(dest(path.dev.js))
     .pipe(browserSync.stream())
 }
 // watch

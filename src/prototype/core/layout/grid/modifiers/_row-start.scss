@@ -1,0 +1,17 @@
+@if _output('grid', $_import) and _output('mod/col-start', $grid-output) {
+    
+.g\:rs {
+    @for $col from 1 to $columns{
+        &-#{$col} {
+            @include _media('for name bp + default') {
+                --row-start: #{$col};
+            }
+        }
+    }
+    &-auto { 
+        @include _media('for name bp + default') { 
+            --row-start: auto;
+        }
+    }   
+}
+}

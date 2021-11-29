@@ -1,0 +1,59 @@
+$_aling: (
+    'left':   'right',
+    'right':  'left',
+    'top':    'bottom',
+    'bottom': 'top',
+    'center': '',
+    'center-x': '',
+    'center-y': '',
+);
+
+.m\: {
+    @each $name,$value in $_aling {
+        &#{$name} {
+            @include _media('for name bp + default') {
+                @if $name == 'left' or
+                    $name == 'right' or
+                    $name == 'top' or
+                    $name == 'bottom'
+                    {
+                    margin-#{$value}: auto;
+                    margin-#{$name}: 0;
+                }
+                @else if $name == 'center'{
+                    margin: auto;
+                }
+                @else if $name == 'center-x'{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                @else if $name == 'center-y'{
+                    margin-top: auto;
+                    margin-bottom: auto;
+                }
+            }
+        }
+        &#{$name}-0 {
+            @include _media('for name bp + default') {
+                @if $name == 'left' or
+                    $name == 'right' or
+                    $name == 'top' or
+                    $name == 'bottom'
+                    {
+                    margin-#{$value}: 0;
+                }
+                @else if $name == 'center'{
+                    margin: 0;
+                }
+                @else if $name == 'center-x'{
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                @else if $name == 'center-y'{
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

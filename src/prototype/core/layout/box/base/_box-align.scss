@@ -1,0 +1,17 @@
+.box-center {
+    @extend %display-flex; 
+    --align: center;
+    --justify: center;
+    align-items: var(--align);
+    justify-content: var(--justify);
+}
+.box-center-y {
+    @extend %display-flex; 
+    --align: center;
+    align-items: var(--align);
+}
+.box-center-x {
+    @extend %display-flex; 
+    --justify: center;
+    justify-content: var(--justify);
+}

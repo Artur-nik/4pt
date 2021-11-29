@@ -1,0 +1,9 @@
+.t\: {
+    @each $value in (left,right,center) {
+        &#{$value} {
+            @include _media('for name bp + default') {
+                text-align: #{$value};
+            }
+        }
+    }
+}

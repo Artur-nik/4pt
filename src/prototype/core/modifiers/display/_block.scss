@@ -1,0 +1,12 @@
+.m\:block {
+    @include _media('for name bp + default') {
+        --dp-flex: flex;
+        --dp-grid: grid;
+        --dp-block: block;
+        --dp-inline: block;
+        //--dp-i-flex: flex;
+        //--dp-i-grid: grid;
+        //--dp-i-block: block;        
+    }
+
+}

@@ -1,0 +1,16 @@
+.m\:hide {
+    --dp-flex:none;
+    --dp-grid:none;
+    --dp-block:none;
+    --dp-inline: none;
+    //--dp-i-flex:none;
+    //--dp-i-block:none;    
+    @include _media('for name bp') {
+        --dp-flex:none;
+        --dp-grid:none;
+        --dp-block:none;
+        --dp-inline: none;
+        //--dp-i-flex:none;
+        //--dp-i-block:none;        
+    }
+}

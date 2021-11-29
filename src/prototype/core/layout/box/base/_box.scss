@@ -1,0 +1,16 @@
+.box {
+    @extend %display-flex; 
+    --align: flex-start;
+    --justify: initial;
+
+    &-reverse {
+        @extend %display-flex; 
+        flex-direction: row-reverse;
+        &[class*=" m:align-"],
+        &[class^="m:align-"] {
+            align-items: var(--align);
+            justify-content: var(--justify-r-x);
+        }
+    }
+}
+

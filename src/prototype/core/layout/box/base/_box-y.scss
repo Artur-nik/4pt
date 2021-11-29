@@ -1,0 +1,19 @@
+.box-y {
+    @extend %display-flex; 
+    flex-direction: column;
+    &[class*=" m:align-"],
+    &[class^="m:align-"] {
+        align-items: var(--justify);
+        justify-content: var(--align);
+    }
+    &-reverse {
+        @extend %display-flex; 
+        flex-direction: column-reverse;
+        &[class*=" m:align-"],
+        &[class^="m:align-"] {
+            align-items:var(--justify);
+            justify-content:  var(--align-r-y);
+        }
+    }
+}
+

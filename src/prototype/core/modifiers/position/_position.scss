@@ -1,0 +1,13 @@
+$mod-position: (
+    'relative',
+    //'absolute',
+    'static'
+);
+
+@each $value in $mod-position {
+    .m\:#{$value}{
+        @include _media('for name bp + default') {
+            position: #{$value};
+        }
+    }
+}

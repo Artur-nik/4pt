@@ -1,0 +1,15 @@
+@if _output('grid', $_import) and _output('mod/auto-rows', $grid-output) {
+
+//*
+
+.g\:rows-auto {
+    @include _media('for name bp') {
+        grid-auto-rows: auto;
+    }
+}
+.g\:rows-fixed {
+    @include _media('for name bp + default') {
+        grid-auto-rows: 1fr;
+    }
+}
+}

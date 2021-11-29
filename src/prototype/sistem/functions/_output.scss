@@ -1,0 +1,13 @@
+@function _output($value , $var) {
+    @if not map-has-key($var, $value ){
+        @warn 'erroe $var: "#{$value}"';
+        @return null;
+    }
+    @else if type-of(map-get($var, $value)) != bool {
+        @warn '$var: "#{$value}" = true/false';
+        @return null;
+    } 
+    @else{
+        @return map-get($var, $value);
+    }
+}
