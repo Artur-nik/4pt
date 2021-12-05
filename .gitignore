@@ -1,7 +1,7 @@
 node_modules
-app/
 .vscode/support4pt.code-snippets
 .vscode/extensions.json
+app/
 src/template/
 assembly/
 src/assembly/
