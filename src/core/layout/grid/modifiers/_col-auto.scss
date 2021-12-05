@@ -1,0 +1,12 @@
+@if _output('grid', $_import) and _output('mod/col-auto', $grid-output) {
+    .g\:col-auto {
+        @include _media('for name bp + default') {
+            --col: auto;
+        }
+        &-none {
+            @include _media('for name bp') {
+                --col: var(--grid-columns);
+            }
+        }
+    }
+}

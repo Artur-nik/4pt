@@ -1,7 +1,0 @@
-.box-x {
-    @each $bp in _bp() {
-        @include _media($bp, true) {
-            flex-direction: row;
-        }
-    }
-}

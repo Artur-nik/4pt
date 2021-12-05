@@ -1,8 +1,0 @@
-//? .no-offset--* 
-@each $bp in map-keys(map-remove($grid, 'default', 'setting'))  {
-    .no-offset\:#{$bp} {
-        @include _media($bp) {
-            --offset: 0%;
-        }
-    }
-}

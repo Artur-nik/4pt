@@ -1,126 +1,33 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4pt CSS Framework</title>
     <link rel="stylesheet" href="css/4pt.css">
-    <style>
-        [class*="col-"], 
-        .col {
-            background-color: rgba(255, 0, 179, 0.336);
-            margin-bottom: 10px;
-        }
-        .container,
-        .container\:tb,
-        .container\:lt,
-        .container\:dt,
-        .container-full {
-            background-color: rgba(0, 179, 164, 0.5);
-            margin-bottom: 10px;
-        }
-    </style>
-    <script type="text/javascript">
-  
-    (function TimeThisMother() {
-        window.onload = function(){
-            setTimeout(function(){
-            var t = performance.timing;
-                console.log("Speed of selection is: " + (t.loadEventEnd - t.responseEnd) + " milliseconds");
-            }, 0);
-        };
-    })();
-    </script>
+    <title>4pt</title>
 </head>
-<body>
-    <div class="container">.container</div>
-    <div class="container:tb">.container-tb</div>
-    <div class="container:lt">.container-lt</div>
-    <div class="container:dt">.container-dt</div>
-    <div class="container-full">.container-full</div>
-    <div class="container">
-        <div class="grid">
-            <div class="col">col</div>
-            <div class="col">col</div>
-            <div class="col">col</div>
-        </div>
+<body style="background-color: aqua;"> 
+    <div class="container " style="background-color: #fff; overflow: hidden;">
+    <div class="grid g:columns-5@md">
+        <div class="col-3" style="background-color: #f1f1f1;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div class="col-3" style="background-color: #f1f1f1;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur </div>
+        <div class="col-3" style="background-color: #f1f1f1;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div class="col-3 m:relative" style="background-color: #f1f1f1;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corporis accusantium earum nam? Officiis maiores minima sit temporibus enim eum doloribus explicabo inventore, nihil, dicta iste possimus! Veniam, aspernatur fugiat?</div>
     </div>
-    <div class="container">
-        <div class="grid grid--no-gap grid--gap:tb">
-            <div class="col-4 col-3:lt">col grid--no-gap grid--gap-tb</div>
-            <div class="col-4 col-3:lt">col grid--no-gap grid--gap-tb</div>
-            <div class="col-4 col-6:lt">        <div class="grid">
-                <div class="col-4">col-4</div>
-                <div class="col-4">col-4</div>
-                <div class="col-4">col-4</div>
-            </div></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="grid">
-            <div class="col-auto">col-auto</div>
-            <div class="col-auto">col-auto</div>
-            <div class="col-auto">col-auto</div>
-        </div>
-    </div>
-    <div class="container" style="display: flex; align-items: center; padding: 20px;">
-        <div class="icon size-xs spacing-right" style="background-color: black;"></div>
-        <div class="icon size-sm spacing-right" style="background-color: black;"></div>
-        <div class="icon size-def spacing-right" style="background-color: black;"></div>
-        <div class="icon size-md spacing-right" style="background-color: black;"></div>
-        <div class="icon size-lg spacing-right" style="background-color: black;"></div>
-        <div class="icon size-xl spacing-right" style="background-color: black;"></div>
-        <div class="icon size-hg spacing-right" style="background-color: black;"></div>
-        <div class="icon size-xh" style="background-color: black;"></div>
-    </div>
-    <div class="container" style="display: flex; align-items: center; padding: 20px;">
-        <div class="avatar size-xs spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-sm spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-def spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-md spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-lg spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-xl spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="avatar size-hg spacing-right" style="background-color: rgb(26, 7, 7);"></div>
-        <div class="box lvl-center indent-xl circle size-xh primary theme-h-bg-234 lightness-bg-40 lightness-color-90 saturation-50">tr</div>
-    </div>
-    <div class="container" style="display: flex; align-items: center; padding: 20px;">
-        <button class="btn size-xs spacing-right">test xs</button>
-        <button class="btn size-sm spacing-right">test sm</button>
-        <button class="btn size-def spacing-right">test def</button>
-        <button class="btn size-md spacing-right">test md</button>
-        <button class="btn size-lg spacing-right">test lg</button>
-        <button class="btn size-xl spacing-right">test xl</button>
-        <button class="btn size-hg spacing-right">test hg</button>
-        <button class="btn size-xh">test xh</button>
-    </div>
-    <div class="container">
-        <div class="grid lvl-center">
-            <div class="col-auto box-x lvl-left" style="height: 100px;width: 150px;"> 
-                <div class="item" style="background-color: aqua;">item-1</div>
-                <div class="item" style="background-color: rgb(0, 255, 128);">item-2</div>
-            </div>
-            <div class="col-auto box-x lvl-right" style="height: 100px;width: 150px;"> 
-                <div class="item" style="background-color: aqua;">item-1</div>
-                <div class="item" style="background-color: rgb(0, 255, 128);">item-2</div>
-            </div>
-            <div class="col-auto box-y" style="height: 100px;width: 150px;"> 
-                <div class="item item-bottom" style="background-color: aqua;">box-y</div>
-                <div class="item item-bottom" style="background-color: rgb(0, 255, 128);">item-bottom box-y</div>
-            </div>
-            <div class="col-auto box-x" style="height: 100px;width: 150px;"> 
-                <div class="item item-bottom" style="background-color: aqua;">box-x</div>
-                <div class="item item-top" style="background-color: rgb(0, 255, 128);">item-bottom box-x</div>
-            </div>
-            <div class="col-auto box" style="height: 100px;width: 150px;"> 
-                <div class="item item-bottom" style="background-color: aqua;">box-y</div>
-                <div class="item " style="background-color: rgb(0, 255, 128);">item-top box-y</div>
-            </div>
-            <div class="test-lvl- col-auto box-x box-y:pb" style="height: 100px;width: 150px;"> 
-                <div class="item item-top" style="background-color: aqua;">box-x</div>
-                <div class="item item-top" style="background-color: rgb(0, 255, 128);">item-top box-x</div>
-            </div>
-        </div>
-    </div>
-  
+</div> 
+    
 </body>
 </html>

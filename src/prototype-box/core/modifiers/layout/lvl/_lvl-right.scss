@@ -1,7 +1,0 @@
-.lvl-right {
-    @each $bp in _bp() {
-        @include _media($bp, true) {
-            --justify: flex-end;
-        }
-    }
-}

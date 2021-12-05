@@ -1,9 +1,0 @@
-.col {
-    @each $bp in map-keys(map-remove($grid, 'setting')) {
-        @include _media($bp, true) {
-            flex-basis: 0;
-            width: auto;
-            --col: #{_value($grid, 'columns', 'setting')};
-        }
-    }
-}

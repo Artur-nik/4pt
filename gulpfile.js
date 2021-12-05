@@ -7,19 +7,29 @@ const autoprefixer  = require('gulp-autoprefixer');
 const fileinclude   = require('gulp-file-include');
 const cssnano       = require('gulp-cssnano');
 
-
 let path = {
     dev: {
         html:          "app/",
         css:           "app/css/",
+        scss:           "src/dev.scss",
+    },
+    build: {
+        css: "build/"
+    },
+    assembly: {
+        css: "assembly/",
+        scss: "src/assembly/*.scss"
     },
     src: {
         html:           [
                             "src/template/*.html", 
                             '!' + "src/template/**/_*.html"
                         ],
-        scss:           "src/prototype/4pt.scss",
-        //js:             "src/js/*.js",
+        scss:           [
+                            "src/*.scss", 
+                            '!' + "src/dev.scss"
+                        ],
+        //js:           "src/js/*.js",
     },
     watch: {
         html:           [
@@ -30,7 +40,23 @@ let path = {
         js:             "src/js/**/*.js",
     },
     clean: "app/**/*",
+    cleanBuild: "build/**/*",
+    cleanAssembly: "assembly/**/*",
 }
+
+const _Browserslist = [
+    '>0.5%',
+    'last 4 versions',
+    'edge >= 15',
+    'not ie > 11', 
+    'not ie_mob > 0',  
+    'ff >= 52',
+    'chrome >= 61',
+    'opera >= 60',
+    'safari >= 11',
+    'ios >= 11',
+    'android > 4.4.4',                         
+];
 
 // Определяем логику работы Browsersync
 function browser_sync() {
@@ -53,24 +79,12 @@ function html() {
 }
 // sass
 function styles() {
-    return src(path.src.scss)
+    return src(path.dev.scss)
     .pipe(sass())
     .pipe(autoprefixer({
         //grid: true,
         flexbox: false,
-        overrideBrowserslist: [
-                            '>0.5%',
-                            'last 4 versions',
-                            'edge >= 15',
-                            'not ie > 11', 
-                            'not ie_mob > 0',  
-                            'ff >= 52',
-                            'chrome >= 61',
-                            'opera >= 60',
-                            'safari >= 11',
-                            'ios >= 11',
-                            'android > 4.4.4',                         
-                        ]}))
+        overrideBrowserslist: _Browserslist}))
     // сбор медиа запросов
     .pipe(gcmq())       
     .pipe(cssnano({
@@ -78,6 +92,36 @@ function styles() {
     }))
     .pipe(dest(path.dev.css))
     .pipe(browserSync.stream());
+}
+//*
+function stylesBuild() {
+    return src(path.src.scss)
+    .pipe(sass())
+    .pipe(autoprefixer({
+        //grid: true,
+        flexbox: false,
+        overrideBrowserslist: _Browserslist}))
+    // сбор медиа запросов
+    .pipe(gcmq())       
+    .pipe(cssnano({
+        discardComments: false,
+    }))
+    .pipe(dest(path.build.css))
+}
+//*
+function stylesAssembly() {
+    return src(path.assembly.scss)
+    .pipe(sass())
+    .pipe(autoprefixer({
+        //grid: true,
+        flexbox: false,
+        overrideBrowserslist: _Browserslist}))
+    // сбор медиа запросов
+    .pipe(gcmq())       
+    .pipe(cssnano({
+        discardComments: false,
+    }))
+    .pipe(dest(path.assembly.css))
 }
 // js
 function scripts() {
@@ -96,7 +140,14 @@ function startwatch() {
 function cleandest() {
     return del(path.clean);
 }
+// удаление папки Build
+function cleanBuild() {
+    return del(path.cleanBuild);
+}
 
+function cleanAssembly() {
+    return del(path.cleanAssembly);
+}
 exports.browser_sync = browser_sync;
 exports.html = html;
 exports.scripts = scripts;
@@ -105,3 +156,5 @@ exports.startwatch = startwatch;
 exports.cleandest = cleandest;
 
 exports.default = series(cleandest, parallel(styles, browser_sync, html,  startwatch));
+exports.build = series(cleanBuild, stylesBuild);
+exports.ass = series(cleanAssembly, stylesAssembly);

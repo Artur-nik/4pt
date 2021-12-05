@@ -1,7 +1,0 @@
-.theme-a {
-    @for $i from 1 through 10 {
-        &-#{$i * 1} {
-            --alpha: #{$i * 0.1};
-        }
-    }
-}

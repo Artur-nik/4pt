@@ -1,7 +1,0 @@
-.box-y {
-    @each $bp in _bp() {
-        @include _media($bp, true) {
-            flex-direction: column;
-        }
-    }
-}
