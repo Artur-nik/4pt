@@ -5,19 +5,19 @@
             @content;
         }
         @else {
-            @media (min-width: map-get($breakpoints, $bp)){
+            @media (min-width: map-get($breakpoints-size, $bp)){
                 @content;
             } 
         }
     }
     @if $type == 'only bp'{
-        @media (min-width: map-get($breakpoints, $bp)){
+        @media (min-width: map-get($breakpoints-size, $bp)){
             @content;
         } 
     }
     @else if $type == 'for bp'{
         @each $_bp in _bp('only') {
-            @media (min-width: map-get($breakpoints, $_bp)){
+            @media (min-width: map-get($breakpoints-size, $_bp)){
                 @content;
             } 
         }        
@@ -28,7 +28,7 @@
                 @content;
             }
             @else {
-                @media (min-width: map-get($breakpoints, $_bp)){
+                @media (min-width: map-get($breakpoints-size, $_bp)){
                     @content;
                 } 
             }
@@ -37,7 +37,7 @@
     @else if $type == 'for name bp'{
         @each $_bp in _bp('only') {
             &\@#{$_bp} {
-                @media (min-width: map-get($breakpoints, $_bp)){
+                @media (min-width: map-get($breakpoints-size, $_bp)){
                     @content;
                 } 
             }
@@ -50,7 +50,7 @@
             }
             @else {
                 &\@#{$_bp} {
-                    @media (min-width: map-get($breakpoints, $_bp)){
+                    @media (min-width: map-get($breakpoints-size, $_bp)){
                         @content;
                     } 
                 }

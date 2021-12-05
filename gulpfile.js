@@ -25,10 +25,8 @@ let path = {
                             "src/template/*.html", 
                             '!' + "src/template/**/_*.html"
                         ],
-        scss:           [
-                            "src/*.scss", 
-                            '!' + "src/dev.scss"
-                        ],
+        scss:           "src/4pt-*.scss", 
+              
         //js:           "src/js/*.js",
     },
     watch: {
@@ -36,7 +34,7 @@ let path = {
                             "src/template/*.html", 
                             "src/template/**/_*.html"
                         ],
-        scss:           "src/prototype/**/*.scss",
+        scss:           "src/**/*.scss",
         js:             "src/js/**/*.js",
     },
     clean: "app/**/*",
