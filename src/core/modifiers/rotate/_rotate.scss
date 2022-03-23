@@ -1,0 +1,17 @@
+
+$modifier-rotate:(
+    '0',
+    '45',
+    '90',
+    '135',
+    '180',
+    '225',
+    '270',
+    '315',
+);
+
+@each $value in $modifier-rotate {
+    .m\:rotate-#{$value} {
+        transform: rotate(#{$value + 'deg'});
+    }
+}

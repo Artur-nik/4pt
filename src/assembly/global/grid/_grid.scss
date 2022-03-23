@@ -1,0 +1,41 @@
+$columns: 12;
+
+$columns-root:(
+    'default': '12',
+    //'sm': '12',
+);
+//*
+$grid-gap-x:(
+    'default': '20px',
+    //'default': '16px',
+    //'sm': '20px',
+    'md': '30px',
+    //'lg': '28px',
+    //'xl': '32px'
+);
+//*
+$grid-gap-y:(
+    'default': '30px',
+    //'default': '16px',
+    //'sm': '20px',
+    //'md': '24px',
+    //'lg': '28px',
+    //'xl': '32px'
+);
+
+
+$order: 12;
+
+
+$container-gap:(
+    'default': '15px' // 30
+);
+$container-max-width:(
+    'sm': '480px',
+    'md': '750px',
+    'lg': '960px',
+    'xl': '1200px'
+);
+
+//?
+@import 'output';

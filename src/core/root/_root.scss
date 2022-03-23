@@ -1,27 +1,33 @@
 @if _output('root', $_import) {
 :root {
+    //*
     @include _output('grid') {
+        //*
         @each $bp, $value in $columns-root {
             @include _media('default', $bp) {
                 --columns: #{$value};
             }
         }
+        //*
         @each $bp, $value in $grid-gap-x {
             @include _media('default', $bp) {
                 --gap-x: #{$value};
             }
         }
+        //*
         @each $bp, $value in $grid-gap-y {
             @include _media('default', $bp) {
                 --gap-y: #{$value};
             }
         }
+        //*
         @each $bp, $value in $container-gap {
             @include _media('default', $bp) {
                 --container-gap: #{$value};
             }
         }
     }
-
+//*
 }
+//*
 }

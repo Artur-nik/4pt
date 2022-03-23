@@ -2,7 +2,12 @@
 .g\:gap {
     @include _media('for name bp') {
         --local-container-gap: var(--container-gap);
-        --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size) );
+        @if _output('modifiers', $_import) and _output('size', $modifiers-output) {
+            --grid-gap-x: calc((var(--gap-x) * var(--size-valye)) * var(--size) );
+        }
+        @else {
+            --grid-gap-x: var(--gap-x);
+        }
         --grid-gap-y: var(--gap-y);
         --gap-n: calc(var(--container-gap) / -1);
     }

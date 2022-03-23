@@ -1,0 +1,16 @@
+$_overflow:(
+    'auto',
+    'scroll',
+    'hidden',
+    'visible'
+); 
+
+.m\:o {
+    @each $value in $_overflow {
+        &-#{$value} {
+            @include _media('for name bp + default') {
+                overflow: #{$value};
+            }
+        }
+    }
+}

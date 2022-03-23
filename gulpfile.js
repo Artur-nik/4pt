@@ -42,19 +42,7 @@ let path = {
     cleanAssembly: "assembly/**/*",
 }
 
-const _Browserslist = [
-    '>0.5%',
-    'last 4 versions',
-    'edge >= 15',
-    'not ie > 11', 
-    'not ie_mob > 0',  
-    'ff >= 52',
-    'chrome >= 61',
-    'opera >= 60',
-    'safari >= 11',
-    'ios >= 11',
-    'android > 4.4.4',                         
-];
+
 
 // Определяем логику работы Browsersync
 function browser_sync() {
@@ -81,13 +69,12 @@ function styles() {
     .pipe(sass())
     .pipe(autoprefixer({
         //grid: true,
-        flexbox: false,
-        overrideBrowserslist: _Browserslist}))
+        flexbox: false,}))
     // сбор медиа запросов
     .pipe(gcmq())       
-    .pipe(cssnano({
-        discardComments: false,
-    }))
+    //.pipe(cssnano({
+    //    discardComments: false,
+    //}))
     .pipe(dest(path.dev.css))
     .pipe(browserSync.stream());
 }
@@ -97,8 +84,7 @@ function stylesBuild() {
     .pipe(sass())
     .pipe(autoprefixer({
         //grid: true,
-        flexbox: false,
-        overrideBrowserslist: _Browserslist}))
+        flexbox: false,}))
     // сбор медиа запросов
     .pipe(gcmq())       
     .pipe(cssnano({
@@ -112,8 +98,7 @@ function stylesAssembly() {
     .pipe(sass())
     .pipe(autoprefixer({
         //grid: true,
-        flexbox: false,
-        overrideBrowserslist: _Browserslist}))
+        flexbox: false,}))
     // сбор медиа запросов
     .pipe(gcmq())       
     .pipe(cssnano({

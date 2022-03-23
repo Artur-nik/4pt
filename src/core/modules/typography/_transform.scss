@@ -1,0 +1,10 @@
+$text-transform:(
+    'uppercase': 'uppercase',
+    'transform-none': 'none'
+);
+
+@each $name, $value in $text-transform {
+    .t\:#{$name} {
+        text-transform: #{$value};
+    }
+}

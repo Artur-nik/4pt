@@ -1,0 +1,15 @@
+//*
+$_wrap:(
+    'nowrap',
+    'wrap',
+    'wrap-reverse',
+);
+.m\: {
+    @each $value in $_wrap {
+        &#{$value} {
+            @include _media('for name bp + default') {
+                flex-wrap: #{$value};
+            }
+        }
+    }
+}

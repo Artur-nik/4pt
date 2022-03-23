@@ -1,0 +1,18 @@
+$grid-output: (
+    'grid': false,
+    //*
+    'col/col': true,
+    'row/row': true,
+    //*
+    'container': false,
+    //*
+    'order': true,
+    
+    //*
+    'mod/col-start': true,
+    'mod/row-start': true,
+    'mod/gap': true,
+    'mod/columns': true,
+    'mod/col-auto': true,
+    'mod/auto-rows': true
+);

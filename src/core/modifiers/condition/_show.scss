@@ -1,18 +1,27 @@
 
 .m\:show {
-    
-    @each $bp in _bp('only') {
-        &\@#{$bp} {
-            @extend .m\:hide;
+
+    @each $bp in _bp() {
+        @if $bp == 'default' {
+            --dp-flex: flex;
+            --dp-grid: grid;
+            --dp-block: block;
+            --dp-inline: inline;
         }
-        &\@#{$bp} {
-            @include _media('default',$bp) {
-                --dp-flex: flex;
-                --dp-grid: grid;
-                --dp-block: block;
-                --dp-inline: inline;
-                //--dp-i-flex: inline-flex;
-                //--dp-i-block: inline-block;                     
+        @else {
+            &\@#{$bp} {
+                @extend .m\:hide;
+            }
+       
+            &\@#{$bp} {
+                @include _media('default', $bp) {
+                    --dp-flex: flex;
+                    --dp-grid: grid;
+                    --dp-block: block;
+                    --dp-inline: inline;
+                    //--dp-i-flex: inline-flex;
+                    //--dp-i-block: inline-block;                     
+                }
             }
         }
     }

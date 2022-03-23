@@ -1,5 +1,6 @@
-
+//*
 .inline {
     --dp-inline: inline;
     display: var(--dp-inline);
+    transform: rotate();
 }

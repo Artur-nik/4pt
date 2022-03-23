@@ -1,12 +1,21 @@
 {
-  "name": "test",
-  "version": "1.0.0",
-  "description": "",
+  "name": "4pt",
+  "version": "0.4.0",
+  "description": "css 4pt framework",
   "main": "./gulpfile/main.js",
   "dependencies": {
     "node-sass": "^5.0.0"
   },
-  "author": "",
+  "author": "Artur Nikora",
+  "keywords": [
+    "4pt",
+    "css",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "framework",
+    "web"
+  ],
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",

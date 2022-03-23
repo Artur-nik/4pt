@@ -9,7 +9,7 @@ $_aling: (
 );
 
 .m\: {
-    @each $name,$value in $_aling {
+    @each $name, $value in $_aling {
         &#{$name} {
             @include _media('for name bp + default') {
                 @if $name == 'left' or
