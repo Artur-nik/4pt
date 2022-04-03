@@ -1,8 +1,5 @@
 .box {
     @extend %display-flex; 
-    --align: flex-start;
-    --justify: initial;
-
     &-reverse {
         @extend %display-flex; 
         flex-direction: row-reverse;
